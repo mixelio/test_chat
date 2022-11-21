@@ -1044,6 +1044,13 @@ label {
     left: 10vw;
   }
 
+  .freelancer__message {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+
   .freelancer__message:hover .message__edit,
   .freelancer__message:hover .more__option {
     -webkit-transform: scale(0);

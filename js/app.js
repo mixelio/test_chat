@@ -403,6 +403,7 @@
         console.log("working");
         let optionBody = e.target.closest(".freelancer__message");
         if (optionBody.children[2].classList.contains("_active")) optionBody.children[2].classList.remove("_active"); else optionBody.children[2].classList.add("_active");
+        console.log(parentElement);
     }));
     /*!
  * long-press-event - v2.2.0
@@ -502,6 +503,15 @@
     }));
     messageBodys.forEach((el => {
         el.addEventListener("mouseleave", closeMenuAuto);
+    }));
+    const parentElement = Array.from(document.getElementsByClassName("option__body"));
+    console.log(parentElement);
+    parentElement.forEach((() => {
+        document.addEventListener("touchstart", (e => {
+            let target = e.target.classList;
+            console.log(target);
+            console.log("-----");
+        }));
     }));
     function optionMenuOpen(e) {
         let optionBody = e.target.nextElementSibling;
