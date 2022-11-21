@@ -400,10 +400,11 @@
     }), 0);
     document.addEventListener("long-press", (function(e) {
         e.target.setAttribute("data-editing", "true");
-        console.log("working");
         let optionBody = e.target.closest(".freelancer__message");
-        if (optionBody.children[2].classList.contains("_active")) optionBody.children[2].classList.remove("_active"); else optionBody.children[2].classList.add("_active");
-        console.log(parentElement);
+        if (optionBody.children[3].classList.contains("_active")) optionBody.children[3].classList.remove("_active"); else {
+            optionBody.children[3].classList.add("_active");
+            optionBody.children[2].classList.add("_active");
+        }
     }));
     /*!
  * long-press-event - v2.2.0
@@ -468,6 +469,7 @@
     const btnsContainer = document.getElementsByClassName("chat__fixitem");
     const bodysContainder = document.getElementsByClassName("chat_bodys");
     const backToChatsBtns = Array.from(document.querySelectorAll(".back_to_chats"));
+    document.getElementById("body");
     console.log(backToChatsBtns);
     tabBtns[0].classList.add("_active");
     tabSlide[0].classList.add("_active");
@@ -504,15 +506,19 @@
     messageBodys.forEach((el => {
         el.addEventListener("mouseleave", closeMenuAuto);
     }));
-    const parentElement = Array.from(document.getElementsByClassName("option__body"));
-    console.log(parentElement);
-    parentElement.forEach((() => {
-        document.addEventListener("touchstart", (e => {
-            let target = e.target.classList;
-            console.log(target);
-            console.log("-----");
-        }));
+    const parentElement = Array.from(document.getElementsByClassName("option__dark_side"));
+    console.log(parentElement[0]);
+    parentElement.forEach((el => {
+        el.addEventListener("touchstart", touchOutEditMenu);
     }));
+    function touchOutEditMenu(e) {
+        console.log(e.target);
+        let menu = e.target.nextElementSibling;
+        if (menu.classList.contains("_active")) {
+            menu.classList.remove("_active");
+            e.target.classList.remove("_active");
+        }
+    }
     function optionMenuOpen(e) {
         let optionBody = e.target.nextElementSibling;
         if (optionBody.classList.contains("_active")) optionBody.classList.remove("_active"); else optionBody.classList.add("_active");
@@ -520,7 +526,7 @@
     function closeMenuAuto(e) {
         let elementLost = e.target.closest(".freelancer__message");
         let menuX = elementLost.children[2];
-        if (menuX.classList.contains("_active")) menuX.classList.remove("_active");
+        if (window.offsetWidth > 750) if (menuX.classList.contains("_active")) menuX.classList.remove("_active");
     }
     const popupBody = document.getElementsByClassName("popup_dark_area");
     const closePopupIcon = document.getElementsByClassName("close_popup_icon");

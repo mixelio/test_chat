@@ -133,6 +133,10 @@ h6 {
      object-fit: contain;
 }
 
+.body._lock {
+  overflow: hidden;
+}
+
 .chat {
   overflow: hidden;
   max-height: 100%;
@@ -588,6 +592,30 @@ h6 {
   background: url("../img/svgicon/bulets.svg") 50% 50%/60% no-repeat, #5CDB94;
 }
 
+.option__dark_side {
+  position: fixed;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #333333;
+  opacity: 0.8;
+  z-index: 6;
+  -webkit-transition: all 300ms ease-in;
+  -o-transition: all 300ms ease-in;
+  transition: all 300ms ease-in;
+  -webkit-transform: translateY(-50%) scaleY(0);
+      -ms-transform: translateY(-50%) scaleY(0);
+          transform: translateY(-50%) scaleY(0);
+}
+
+.option__dark_side._active {
+  -webkit-transform: translateY(0) scaleY(1);
+      -ms-transform: translateY(0) scaleY(1);
+          transform: translateY(0) scaleY(1);
+}
+
 .option__body {
   padding: 15px 10px;
   background: #FFFFFF;
@@ -606,7 +634,7 @@ h6 {
   -webkit-transform: translateY(-50%) scaleY(0);
       -ms-transform: translateY(-50%) scaleY(0);
           transform: translateY(-50%) scaleY(0);
-  z-index: 3;
+  z-index: 7;
 }
 
 .option__body._active {
@@ -1065,9 +1093,11 @@ label {
   }
 
   .option__body {
-    -webkit-transform: translateY(100%);
-        -ms-transform: translateY(100%);
-            transform: translateY(100%);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    -webkit-transform: translateY(100%) scaleY(0);
+        -ms-transform: translateY(100%) scaleY(0);
+            transform: translateY(100%) scaleY(0);
     position: fixed;
     top: auto;
     bottom: 0;
@@ -1112,9 +1142,10 @@ label {
   }
 
   .option__body._active {
-    -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translateY(0) scaleY(1);
+        -ms-transform: translateY(0) scaleY(1);
+            transform: translateY(0) scaleY(1);
+    z-index: 10;
   }
 }
 
