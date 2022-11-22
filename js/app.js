@@ -500,7 +500,7 @@
     }
     const moreInfoBtns = Array.from(document.querySelectorAll(".more__option"));
     const messageBodys = Array.from(document.querySelectorAll(".freelancer__message"));
-    const parentElement = Array.from(document.getElementsByClassName("option__dark_side"));
+    const parentElement = Array.from(document.querySelectorAll(".option__dark_side"));
     moreInfoBtns.forEach((el => {
         el.addEventListener("click", optionMenuOpen);
     }));
