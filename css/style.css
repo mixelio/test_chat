@@ -589,8 +589,8 @@ h6 {
 }
 
 .option__dark_side {
+  display: none;
   position: fixed;
-  display: inline-block;
   top: 0;
   left: 0;
   height: 100%;
@@ -1086,6 +1086,10 @@ label {
     -webkit-transform: scale(0);
         -ms-transform: scale(0);
             transform: scale(0);
+  }
+
+  .option__dark_side {
+    display: block;
   }
 
   .option__body {
