@@ -133,6 +133,14 @@ h6 {
      object-fit: contain;
 }
 
+.wrapper {
+  overflow: hidden;
+}
+
+.page {
+  max-width: 100%;
+}
+
 .chat {
   overflow: hidden;
   min-height: 100%;
@@ -151,6 +159,8 @@ h6 {
 }
 
 .chat__fixitem {
+  height: 100%;
+  overflow: scroll;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
